@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>TODO APP</title>
+    </head>
+    <body>
+        <h1>TODO LIST</h1>
+        <input placeholder="Add todo" id="todo_input"/>
+        <button id="add" onclick="add()">Add</button>
+        <ul id="list">
+            <li style="color: brown;">Session from 4.30 to 6.30 PM</li>
+            <li style="color: brown;">GO buy Maggie</li>
+            <li style="color: brown;">Hit Gym</li>
+        </ul>
+    </body>
+  
+    <script>
+        // document object model
+        function add(){
+                const todo = document.getElementById('todo_input').value
+                const todo_item = document.createElement('li')
+                todo_item.innerHTML = todo
+                const todo_list = document.getElementById('list')
+                todo_list.appendChild(todo_item)
+                document.getElementById('todo_input').value = ''
+        }
+
+    </script>
+</html>
