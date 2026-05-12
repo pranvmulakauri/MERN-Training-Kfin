@@ -1,0 +1,8 @@
+Create a Server with 3 Endpoints
+/signup 
+/login
+/investors
+
+1. User should mandatorily sign up before login
+2. User should not be allowed to signup multiple times
+3. Return public investor data list
