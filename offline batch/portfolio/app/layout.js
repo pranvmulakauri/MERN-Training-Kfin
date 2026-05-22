@@ -1,8 +1,14 @@
+"use client";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import ProfileProvider from "./core/providers/ProfileProvider";
-import SideBar from "./components/dashboard/SideBar";
+
+const SideBar = dynamic(() => import("./components/dashboard/SideBar"), {
+  loading: () => <p>Loading</p>,
+});
+//import SideBar from "./components/dashboard/SideBar";
 import DashHeader from "./components/DashHeader";
+import dynamic from "next/dynamic";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

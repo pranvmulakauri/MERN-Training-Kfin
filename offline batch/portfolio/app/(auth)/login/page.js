@@ -45,7 +45,10 @@ export default function LoginPage() {
             .then((result) => {
               console.log(JSON.stringify(result));
               storeDetails(email,password)
-              router.push("/investor-details");
+
+              document.cookie = `token=${result.access}`
+
+              router.push("/dashboard");
 
               //alert(JSON.stringify(result));
             })
