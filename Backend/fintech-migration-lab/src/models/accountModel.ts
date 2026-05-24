@@ -1,6 +1,6 @@
-/** NOT MIGRATED — convert to accountModel.ts with Account interface */
+import type { Account, AccountId, InvestorId } from "../types";
 
-const accounts = [
+const accounts: Account[] = [
   {
     accountId: "ACC001",
     investorId: "INV001",
@@ -39,20 +39,14 @@ const accounts = [
   },
 ];
 
-function getAllAccounts() {
+export function getAllAccounts(): Account[] {
   return accounts;
 }
 
-function getAccountById(accountId) {
+export function getAccountById(accountId: AccountId): Account | undefined {
   return accounts.find((a) => a.accountId === accountId);
 }
 
-function getAccountsByInvestor(investorId) {
+export function getAccountsByInvestor(investorId: InvestorId): Account[] {
   return accounts.filter((a) => a.investorId === investorId);
 }
-
-module.exports = {
-  getAllAccounts,
-  getAccountById,
-  getAccountsByInvestor,
-};

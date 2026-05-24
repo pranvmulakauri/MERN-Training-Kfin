@@ -1,6 +1,6 @@
-import type { Portfolio } from "../types";
+import type { Portfolio, InvestorId } from "../types";
 
-/** PARTIALLY MIGRATED — Portfolio typed; helper functions still loose */
+/** FULLY MIGRATED — Portfolio typed with proper function signatures */
 
 const portfolios: Portfolio[] = [
   {
@@ -32,17 +32,15 @@ const portfolios: Portfolio[] = [
   },
 ];
 
-// TODO: add return type Portfolio[]
-export function getPortfoliosByInvestor(investorId) {
+export function getPortfoliosByInvestor(investorId: InvestorId): Portfolio[] {
   return portfolios.filter((p) => p.investorId === investorId);
 }
 
-// TODO: add return type Portfolio | undefined
-export function getPortfolioById(portfolioId) {
+export function getPortfolioById(portfolioId: string): Portfolio | undefined {
   return portfolios.find((p) => p.portfolioId === portfolioId);
 }
 
-export function getPortfolioValue(portfolioId) {
+export function getPortfolioValue(portfolioId: string): number {
   const pf = getPortfolioById(portfolioId);
   if (!pf) return 0;
   return pf.holdings.reduce((sum, h) => sum + h.quantity * h.avgPrice, 0);

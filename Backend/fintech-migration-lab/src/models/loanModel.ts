@@ -1,6 +1,6 @@
-/** NOT MIGRATED */
+import type { Loan, InvestorId } from "../types";
 
-const loans = [
+const loans: Loan[] = [
   {
     loanId: "LN001",
     investorId: "INV001",
@@ -36,20 +36,14 @@ const loans = [
   },
 ];
 
-function getAllLoans() {
+export function getAllLoans(): Loan[] {
   return loans;
 }
 
-function getLoansByInvestor(investorId) {
+export function getLoansByInvestor(investorId: InvestorId): Loan[] {
   return loans.filter((l) => l.investorId === investorId);
 }
 
-function getLoanById(loanId) {
+export function getLoanById(loanId: string): Loan | undefined {
   return loans.find((l) => l.loanId === loanId);
 }
-
-module.exports = {
-  getAllLoans,
-  getLoansByInvestor,
-  getLoanById,
-};

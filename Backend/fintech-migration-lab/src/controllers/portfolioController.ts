@@ -4,16 +4,16 @@ import {
   getPortfolioById,
   getPortfolioValue,
 } from "../models/portfolioModel";
-const { sendSuccess, sendNotFound } = require("../utility/responseHelper");
+import { sendSuccess, sendNotFound } from "../utility/responseHelper";
 
-/** PARTIALLY MIGRATED */
+/** MIGRATED controller */
 
-export function listPortfoliosByInvestor(req: Request, res: Response) {
+export function listPortfoliosByInvestor(req: Request, res: Response): void {
   const portfolios = getPortfoliosByInvestor(req.params.investorId);
   sendSuccess(res, portfolios);
 }
 
-export function getPortfolio(req: Request, res: Response) {
+export function getPortfolio(req: Request, res: Response): void {
   const portfolio = getPortfolioById(req.params.id);
   if (!portfolio) {
     sendNotFound(res, "Portfolio");

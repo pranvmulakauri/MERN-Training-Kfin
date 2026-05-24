@@ -1,8 +1,8 @@
 import type { Request, Response } from "express";
 import { getAllInvestors, getInvestorById } from "../models/investorModel";
-const { sendSuccess, sendNotFound } = require("../utility/responseHelper");
+import { sendSuccess, sendNotFound } from "../utility/responseHelper";
 
-/** MIGRATED controller — still imports JS responseHelper (migrate that next) */
+/** MIGRATED controller */
 
 export function listInvestors(_req: Request, res: Response): void {
   sendSuccess(res, getAllInvestors());

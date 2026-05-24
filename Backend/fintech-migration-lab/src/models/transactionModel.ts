@@ -1,6 +1,6 @@
-/** NOT MIGRATED */
+import type { Transaction, TransactionId, AccountId } from "../types";
 
-const transactions = [
+const transactions: Transaction[] = [
   {
     txnId: "TXN001",
     accountId: "ACC001",
@@ -39,20 +39,14 @@ const transactions = [
   },
 ];
 
-function getAllTransactions() {
+export function getAllTransactions(): Transaction[] {
   return transactions;
 }
 
-function getTransactionsByAccount(accountId) {
+export function getTransactionsByAccount(accountId: AccountId): Transaction[] {
   return transactions.filter((t) => t.accountId === accountId);
 }
 
-function getTransactionById(txnId) {
+export function getTransactionById(txnId: TransactionId): Transaction | undefined {
   return transactions.find((t) => t.txnId === txnId);
 }
-
-module.exports = {
-  getAllTransactions,
-  getTransactionsByAccount,
-  getTransactionById,
-};
