@@ -1,6 +1,7 @@
 import { Router } from "express";
-import { listTransactions } from "../controllers/transactionController";
+import { listTransactions, getTransaction } from "../controllers/transactionController";
 
 export const transactionRouter = Router();
 
 transactionRouter.get("/", listTransactions);
+transactionRouter.get("/:id", getTransaction);

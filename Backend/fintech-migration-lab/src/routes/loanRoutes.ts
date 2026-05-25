@@ -1,6 +1,7 @@
 import { Router } from "express";
-import { listLoans } from "../controllers/loanController";
+import { listLoans, getLoan } from "../controllers/loanController";
 
 export const loanRouter = Router();
 
 loanRouter.get("/", listLoans);
+loanRouter.get("/:id", getLoan);
